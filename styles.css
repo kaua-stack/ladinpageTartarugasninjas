@@ -1,0 +1,1171 @@
+/* ==========================================
+   CONFIGURAÇÕES GLOBAIS
+   ========================================== */
+
+/* Importação de fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap');
+
+/* Definição de variáveis CSS para cores e temas */
+:root {
+    /* Cores das tartarugas */
+    --leonardo-color: #0077be;
+    --raphael-color: #e51c23;
+    --michelangelo-color: #ff9800;
+    --donatello-color: #9c27b0;
+    
+    /* Cores do tema */
+    --primary-green: #2e7d32;
+    --secondary-green: #4caf50;
+    --light-green: #8bc34a;
+    --dark-green: #1b5e20;
+    --sewer-color: #3e3e3e;
+    --sewer-dark: #222222;
+}
+
+/* Reset básico de CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Comportamento de rolagem suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos básicos do corpo da página */
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte principal */
+    background-color: #f5f5f5; /* Cor de fundo clara */
+    color: #333; /* Cor do texto */
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+/* Estilo para o modo escuro (tema esgoto) */
+body.dark-mode {
+    background-color: var(--sewer-dark);
+    color: #f5f5f5;
+}
+
+/* Estilo para títulos de seção */
+.section-title {
+    font-family: 'Bangers', cursive; /* Fonte estilizada para títulos */
+    font-size: 3rem;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--primary-green);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+}
+
+/* Ajuste de cor para títulos no modo escuro */
+body.dark-mode .section-title {
+    color: var(--light-green);
+}
+
+/* Espaçamento padrão para seções */
+section {
+    padding: 4rem 2rem;
+}
+
+/* ==========================================
+   BOTÃO DE ALTERNAR TEMA
+   ========================================== */
+
+.theme-toggle {
+    position: fixed; /* Fixo na tela */
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Acima de outros elementos */
+}
+
+#theme-button {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Transição suave */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#theme-button:hover {
+    background-color: var(--dark-green);
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+/* Ajuste para o botão no modo escuro */
+body.dark-mode #theme-button {
+    background-color: var(--sewer-color);
+}
+
+/* ==========================================
+   BARRA DE NAVEGAÇÃO
+   ========================================== */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 8vh;
+    background-color: var(--primary-green);
+    padding: 0 5%;
+    position: sticky; /* Fixo ao rolar */
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Ajuste para navegação no modo escuro */
+body.dark-mode nav {
+    background-color: var(--sewer-dark);
+    border-bottom: 2px solid var(--secondary-green);
+}
+
+/* Estilo do logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: rotate(10deg); /* Rotação ao passar o mouse */
+}
+
+/* Links de navegação */
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente ao passar o mouse */
+    transform: translateY(-2px); /* Leve movimento para cima */
+}
+
+/* Botão de menu para dispositivos móveis */
+.burger {
+    display: none; /* Oculto em telas grandes */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   SEÇÃO HOME
+   ========================================== */
+
+.home-section {
+    position: relative;
+    height: 100vh; /* Altura total da viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); /* Gradiente verde */
+    overflow: hidden;
+}
+
+/* Ajuste para o modo escuro */
+body.dark-mode .home-section {
+    background: linear-gradient(135deg, #1b5e20 0%, #0d3311 100%);
+}
+
+/* Animação da tampa de esgoto */
+.sewer-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.5s ease-in-out;
+}
+
+.sewer-lid {
+    width: 300px;
+    height: 300px;
+    background-color: #555;
+    border-radius: 50%;
+    border: 20px solid #777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Texto "TMNT" na tampa de esgoto */
+.sewer-lid::before {
+    content: "TMNT";
+    color: #999;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Linha horizontal na tampa de esgoto */
+.sewer-lid::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 10px;
+    background-color: #777;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+/* Banner principal */
+.banner {
+    text-align: center;
+    z-index: 5;
+    padding: 2rem;
+}
+
+.banner h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 5rem;
+    color: white;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
+}
+
+.tagline {
+    margin-bottom: 2rem;
+}
+
+.tagline h2 {
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    transition: transform 0.3s ease;
+}
+
+.tagline h2:hover {
+    transform: scale(1.1); /* Aumenta ao passar o mouse */
+}
+
+/* Botão Cowabunga */
+.cowabunga-btn {
+    background-color: var(--michelangelo-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cowabunga-btn:hover {
+    background-color: #e65100;
+    transform: scale(1.05);
+}
+
+/* Imagem do banner */
+.turtles-banner {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.banner-img:hover {
+    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+}
+
+/* ==========================================
+   NOVA SEÇÃO DE PERSONAGENS (CARROSSEL)
+   ========================================== */
+
+.characters-section {
+    background-color: #f9f9f9;
+    padding: 4rem 2rem;
+}
+
+body.dark-mode .characters-section {
+    background-color: #2a2a2a;
+}
+
+/* Container principal do carrossel */
+.character-showcase {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem 0;
+}
+
+/* Controles de navegação (botões anterior/próximo) */
+.showcase-controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 0 1rem;
+}
+
+.showcase-btn {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.showcase-btn:hover {
+    background-color: var(--dark-green);
+    transform: scale(1.1);
+}
+
+body.dark-mode .showcase-btn {
+    background-color: var(--sewer-color);
+}
+
+/* Container dos slides */
+.showcase-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+}
+
+/* Item individual do carrossel */
+.showcase-item {
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    transition: transform 0.5s ease;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Item ativo no carrossel */
+.showcase-item.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Imagem do personagem */
+.character-image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    height: 400px;
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.showcase-item:hover .character-image img {
+    transform: scale(1.05);
+}
+
+/* Ícone da arma do personagem */
+.character-weapon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.character-image:hover .character-weapon {
+    transform: translateY(0);
+}
+
+/* Informações do personagem */
+.character-info {
+    flex: 2;
+    padding: 1rem;
+    max-width: 600px;
+}
+
+.character-info h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Cor característica de cada personagem */
+.character-color {
+    width: 100px;
+    height: 8px;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.character-role {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: var(--primary-green);
+}
+
+body.dark-mode .character-role {
+    color: var(--light-green);
+}
+
+.character-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Citação do personagem */
+.character-quote {
+    background-color: #f0f0f0;
+    border-left: 5px solid var(--primary-green);
+    padding: 1rem;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+body.dark-mode .character-quote {
+    background-color: #333;
+    border-left-color: var(--light-green);
+}
+
+.character-quote i {
+    font-size: 1.5rem;
+    color: var(--primary-green);
+}
+
+body.dark-mode .character-quote i {
+    color: var(--light-green);
+}
+
+.character-quote p {
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Indicadores de navegação (pontos) */
+.showcase-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: var(--primary-green);
+    transform: scale(1.2);
+}
+
+body.dark-mode .indicator.active {
+    background-color: var(--light-green);
+}
+
+/* ==========================================
+   SEÇÃO DE CURIOSIDADES
+   ========================================== */
+
+.curiosities-section {
+    background-color: #e8f5e9;
+    padding: 4rem 2rem;
+}
+
+body.dark-mode .curiosities-section {
+    background-color: #1e3320;
+}
+
+.curiosities-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.curiosity-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .curiosity-card {
+    background-color: #333;
+}
+
+.curiosity-card:hover {
+    transform: translateY(-10px); /* Move para cima ao passar o mouse */
+}
+
+.curiosity-card h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+body.dark-mode .curiosity-card h3 {
+    color: var(--light-green);
+}
+
+.curiosity-card p, .curiosity-card ul {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.curiosity-card ul {
+    padding-left: 1.5rem;
+}
+
+.curiosity-card li {
+    margin-bottom: 0.5rem;
+}
+
+.curiosity-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* Card especial para pizza */
+.pizza-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.pizza-animation {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.pizza-img {
+    width: 150px;
+    animation: spin 10s linear infinite; /* Animação de rotação */
+}
+
+/* Animação de rotação */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Container de vídeo */
+.video-container {
+    margin-top: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   SEÇÃO DO QUIZ
+   ========================================== */
+
+.quiz-section {
+    background-color: #e0f2f1;
+    padding: 4rem 2rem;
+}
+
+body.dark-mode .quiz-section {
+    background-color: #1a3a39;
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .quiz-container {
+    background-color: #333;
+}
+
+#quiz-start {
+    text-align: center;
+}
+
+#quiz-start p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Botões do quiz */
+#start-quiz, #submit-quiz, #retake-quiz {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#start-quiz:hover, #submit-quiz:hover, #retake-quiz:hover {
+    background-color: var(--dark-green);
+    transform: scale(1.05);
+}
+
+/* Perguntas do quiz */
+.question {
+    margin-bottom: 2rem;
+}
+
+.question h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-green);
+}
+
+body.dark-mode .question h3 {
+    color: var(--light-green);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .options label {
+    background-color: #444;
+}
+
+.options label:hover {
+    background-color: #e0e0e0;
+}
+
+body.dark-mode .options label:hover {
+    background-color: #555;
+}
+
+#submit-quiz {
+    margin-top: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Resultado do quiz */
+#quiz-result {
+    text-align: center;
+}
+
+#quiz-result h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-green);
+}
+
+body.dark-mode #quiz-result h3 {
+    color: var(--light-green);
+}
+
+#result-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--primary-green);
+}
+
+#result-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+#retake-quiz {
+    margin-top: 1rem;
+}
+
+/* ==========================================
+   SEÇÃO "SEJA UM NINJA"
+   ========================================== */
+
+.ninja-section {
+    background-color: #f9f9f9;
+    padding: 4rem 2rem;
+}
+
+body.dark-mode .ninja-section {
+    background-color: #2a2a2a;
+}
+
+/* Sabedoria do Mestre Splinter */
+.splinter-wisdom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    align-items: center;
+}
+
+.splinter-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.splinter-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.wisdom-quotes {
+    flex: 2;
+    min-width: 300px;
+}
+
+.wisdom-quotes h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+body.dark-mode .wisdom-quotes h3 {
+    color: var(--light-green);
+}
+
+.quote-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+body.dark-mode .quote-container {
+    background-color: #333;
+}
+
+/* Aspas decorativas */
+.quote-container::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.1);
+    font-family: serif;
+}
+
+.quote {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-style: italic;
+    display: none; /* Todas as citações começam ocultas */
+}
+
+.quote:first-child {
+    display: block; /* Apenas a primeira citação é visível */
+}
+
+#new-quote {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#new-quote:hover {
+    background-color: var(--dark-green);
+    transform: scale(1.05);
+}
+
+/* Treinamento Ninja */
+.ninja-training {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ninja-training h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+body.dark-mode .ninja-training h3 {
+    color: var(--light-green);
+}
+
+.training-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.step {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .step {
+    background-color: #333;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+}
+
+.step h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-green);
+}
+
+body.dark-mode .step h4 {
+    color: var(--light-green);
+}
+
+.step p {
+    line-height: 1.6;
+}
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+
+footer {
+    background-color: var(--dark-green);
+    color: white;
+    padding: 3rem 2rem 1rem;
+}
+
+body.dark-mode footer {
+    background-color: var(--sewer-dark);
+    border-top: 2px solid var(--primary-green);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    gap: 2rem;
+}
+
+.footer-logo img {
+    height: 80px;
+}
+
+.footer-links h4, .social-media h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================
+   DESIGN RESPONSIVO
+   ========================================== */
+
+/* Telas médias (tablets) */
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 70%;
+    }
+    
+    /* Ajuste para o carrossel em telas médias */
+    .showcase-item {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem;
+    }
+    
+    .character-image {
+        max-width: 100%;
+        height: 300px;
+    }
+    
+    .character-info {
+        max-width: 100%;
+    }
+}
+
+/* Telas pequenas (celulares) */
+@media screen and (max-width: 768px) {
+    /* Menu de navegação móvel */
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background-color: var(--primary-green);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%); /* Inicialmente fora da tela */
+        transition: transform 0.5s ease-in;
+        z-index: 998;
+    }
+    
+    body.dark-mode .nav-links {
+        background-color: var(--sewer-dark);
+    }
+    
+    .nav-links li {
+        opacity: 0; /* Inicialmente invisível */
+    }
+    
+    .burger {
+        display: block; /* Mostrar o botão de menu */
+    }
+    
+    /* Ajustes de tamanho para telas menores */
+    .banner h1 {
+        font-size: 3.5rem;
+    }
+    
+    .tagline h2 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .splinter-wisdom {
+        flex-direction: column;
+    }
+    
+    /* Ajustes para o carrossel em telas pequenas */
+    .showcase-controls {
+        position: relative;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .character-image {
+        height: 250px;
+    }
+}
+
+/* Classe para menu móvel ativo */
+.nav-active {
+    transform: translateX(0%);
+}
+
+/* Animação para links do menu móvel */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animação para o botão de menu (hambúrguer) */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Telas muito pequenas */
+@media screen and (max-width: 480px) {
+    .banner h1 {
+        font-size: 2.8rem;
+    }
+    
+    .tagline h2 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        width: 70%;
+    }
+    
+    /* Ajustes para o carrossel em telas muito pequenas */
+    .character-info h3 {
+        font-size: 2.5rem;
+    }
+    
+    .character-role {
+        font-size: 1.3rem;
+    }
+}
+
+/* Animação de fade in para elementos */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

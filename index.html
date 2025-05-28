@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Configurações básicas da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tartarugas Ninja</title>
+    <!-- Importação dos arquivos CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Importação de ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Botão para alternar entre modo claro e escuro -->
+    <div class="theme-toggle">
+        <button id="theme-button"><i class="fas fa-moon"></i> Modo Esgoto</button>
+        <!-- Arquivo de áudio para o efeito sonoro "Cowabunga" -->
+        <audio id="cowabunga-sound" src="cowabunga.mp3" preload="auto"></audio>
+    </div>
+
+    <!-- Barra de navegação -->
+    <nav>
+        <!-- Logo do site -->
+        <div class="logo">
+            <img src="img/logo.jpg" alt="TMNT Logo" id="logo">
+        </div>
+        <!-- Links de navegação -->
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#characters">Personagens</a></li>
+            <li><a href="#curiosities">Curiosidades</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#ninja">Seja um Ninja</a></li>
+        </ul>
+        <!-- Botão de menu para dispositivos móveis (hambúrguer) -->
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Seção inicial (Home) -->
+    <section id="home" class="home-section">
+        <!-- Animação de tampa de esgoto abrindo -->
+        <div class="sewer-cover" id="sewer-cover">
+            <div class="sewer-lid"></div>
+        </div>
+        <!-- Banner principal -->
+        <div class="banner">
+            <h1>TARTARUGAS NINJA</h1>
+            <div class="tagline">
+                <!-- Texto "Cowabunga" com efeito sonoro -->
+                <h2 id="cowabunga-text">COWABUNGA!</h2>
+                <button id="cowabunga-btn" class="cowabunga-btn">Clique para o grito!</button>
+            </div>
+            <!-- Imagem principal das tartarugas -->
+            <div class="turtles-banner">
+                <img src="img/tartarugas.png" alt="Tartarugas Ninja" class="banner-img" >
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Personagens (com novo design) -->
+    <section id="characters" class="characters-section">
+        <h2 class="section-title">PERSONAGENS</h2>
+        
+        <!-- Novo carrossel de personagens -->
+        <div class="character-showcase">
+            <!-- Controles de navegação -->
+            <div class="showcase-controls">
+                <button id="prev-character" class="showcase-btn"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-character" class="showcase-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <!-- Container do carrossel -->
+            <div class="showcase-container">
+                <!-- Leonardo -->
+                <div class="showcase-item" data-character="leonardo">
+                    <div class="character-image">
+                        <img src="img/leo01.jpg" alt="Leonardo">
+                        <div class="character-weapon">
+                            <i class="fas fa-khanda"></i>
+                            <span>Katanas</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3>Leonardo</h3>
+                        <div class="character-color" style="background-color: #0077be;"></div>
+                        <p class="character-role">O Líder</p>
+                        <p class="character-description">
+                            Leonardo é o líder disciplinado da equipe. Ele usa espadas katana e veste bandana azul.
+                            Sempre colocando a equipe em primeiro lugar, Leonardo é estratégico, leal e dedicado ao seu treinamento.
+                        </p>
+                        <div class="character-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Um líder não é nada sem sua equipe."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Raphael -->
+                <div class="showcase-item" data-character="raphael">
+                    <div class="character-image">
+                        <img src="img/rafha01.jpg" alt="Raphael">
+                        <div class="character-weapon">
+                            <i class="fas fa-utensils"></i>
+                            <span>Sais</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3>Raphael</h3>
+                        <div class="character-color" style="background-color: #e51c23;"></div>
+                        <p class="character-role">O Temperamental</p>
+                        <p class="character-description">
+                            Raphael é o membro mais intenso e temperamental da equipe. Ele usa sais e veste bandana vermelha.
+                            Forte, impulsivo e protetor, Raphael sempre está pronto para lutar pelo que acredita.
+                        </p>
+                        <div class="character-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Eu prefiro bater primeiro e fazer perguntas depois."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Michelangelo -->
+                <div class="showcase-item" data-character="michelangelo">
+                    <div class="character-image">
+                        <img src="img/miche01.jpg" alt="Michelangelo">
+                        <div class="character-weapon">
+                            <i class="fas fa-link"></i>
+                            <span>Nunchakus</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3>Michelangelo</h3>
+                        <div class="character-color" style="background-color: #ff9800;"></div>
+                        <p class="character-role">O Brincalhão</p>
+                        <p class="character-description">
+                            Michelangelo é a alma da festa. Ele usa nunchakus e veste bandana laranja.
+                            Divertido, criativo e sempre otimista, Mikey é conhecido por seu amor por pizza e por manter o espírito da equipe elevado.
+                        </p>
+                        <div class="character-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Pizza é vida, cara!"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Donatello -->
+                <div class="showcase-item" data-character="donatello">
+                    <div class="character-image">
+                        <img src="img/dona01.jpg" alt="Donatello">
+                        <div class="character-weapon">
+                            <i class="fas fa-staff"></i>
+                            <span>Bastão Bō</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3>Donatello</h3>
+                        <div class="character-color" style="background-color: #9c27b0;"></div>
+                        <p class="character-role">O Gênio</p>
+                        <p class="character-description">
+                            Donatello é o cérebro da equipe. Ele usa um bastão bō e veste bandana roxa.
+                            Inteligente, inventor e pacífico, Donnie sempre encontra soluções tecnológicas para os problemas da equipe.
+                        </p>
+                        <div class="character-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"A tecnologia é a solução para quase tudo."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mestre Splinter -->
+                <div class="showcase-item" data-character="splinter">
+                    <div class="character-image">
+                        <img src="img/mestr01.jpg" alt="Mestre Splinter">
+                        <div class="character-weapon">
+                            <i class="fas fa-walking-stick"></i>
+                            <span>Bastão</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3>Mestre Splinter</h3>
+                        <div class="character-color" style="background-color: #8d6e63;"></div>
+                        <p class="character-role">O Mentor</p>
+                        <p class="character-description">
+                            Splinter é o mentor e pai adotivo das tartarugas. Um rato mutante com conhecimentos de ninjutsu,
+                            ele treinou as tartarugas nas artes marciais e na filosofia ninja.
+                        </p>
+                        <div class="character-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"A mente é a arma mais poderosa."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- April O'Neil -->
+                <div class="showcase-item" data-character="april">
+                    <div class="character-image">
+                        <img src="img/aliada01.jpg" alt="April O'Neil">
+                        <div class="character-weapon">
+                            <i class="fas fa-microphone"></i>
+                            <span>Repórter</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3>April O'Neil</h3>
+                        <div class="character-color" style="background-color: #ffeb3b;"></div>
+                        <p class="character-role">A Aliada</p>
+                        <p class="character-description">
+                            April é uma repórter e a primeira amiga humana das tartarugas. Corajosa e determinada,
+                            ela frequentemente ajuda as tartarugas em suas missões contra o mal.
+                        </p>
+                        <div class="character-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Esta é April O'Neil, reportando ao vivo."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Destruidor (Shredder) -->
+                <div class="showcase-item" data-character="shredder">
+                    <div class="character-image">
+                        <img src="img/vilao01.jpg" alt="Destruidor">
+                        <div class="character-weapon">
+                            <i class="fas fa-hand-fist"></i>
+                            <span>Garras</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3>Destruidor (Shredder)</h3>
+                        <div class="character-color" style="background-color: #212121;"></div>
+                        <p class="character-role">O Vilão</p>
+                        <p class="character-description">
+                            Shredder é o principal antagonista e líder do Clã do Pé. Implacável e poderoso,
+                            ele busca vingança contra Splinter e está determinado a destruir as tartarugas.
+                        </p>
+                        <div class="character-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Eu destruirei Splinter e suas tartarugas!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Indicadores de navegação -->
+            <div class="showcase-indicators">
+                <span class="indicator active" data-index="0"></span>
+                <span class="indicator" data-index="1"></span>
+                <span class="indicator" data-index="2"></span>
+                <span class="indicator" data-index="3"></span>
+                <span class="indicator" data-index="4"></span>
+                <span class="indicator" data-index="5"></span>
+                <span class="indicator" data-index="6"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Curiosidades -->
+    <section id="curiosities" class="curiosities-section">
+        <h2 class="section-title">CURIOSIDADES</h2>
+        <div class="curiosities-container">
+            <!-- Card de curiosidade: Origem -->
+            <div class="curiosity-card">
+                <h3>Origem</h3>
+                <p>As Tartarugas Ninja foram criadas em 1984 por Kevin Eastman e Peter Laird como uma paródia de quadrinhos populares da época. O que começou como uma piada se transformou em um fenômeno cultural!</p>
+                <img src="img/quadrinhos.jpg" alt="Quadrinho original">
+            </div>
+            
+            <!-- Card de curiosidade: Evolução -->
+            <div class="curiosity-card">
+                <h3>Evolução</h3>
+                <p>Ao longo dos anos, as Tartarugas Ninja tiveram várias encarnações em desenhos animados e filmes:</p>
+                <ul>
+                    <li>Série animada original (1987-1996)</li>
+                    <li>Filmes live-action dos anos 90</li>
+                    <li>Série de 2003 (mais fiel aos quadrinhos)</li>
+                    <li>Série de 2012 da Nickelodeon</li>
+                    <li>Filmes de 2014 e 2016</li>
+                    <li>Rise of the TMNT (2018)</li>
+                    <li>Mutant Mayhem (2023)</li>
+                </ul>
+                <!-- Adicionado trailer do filme mais recente -->
+                <div class="video-container">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/vDqQ-smbqHc?si=KpCs6wmt6tBzu3Jb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </div>
+            </div>
+            
+            <!-- Card de curiosidade: Pizza -->
+            <div class="curiosity-card pizza-card">
+                <h3>Pizza!</h3>
+                <p>O amor das tartarugas por pizza se tornou uma característica icônica da franquia. Inicialmente, nos quadrinhos originais, elas não eram obcecadas por pizza, mas isso foi adicionado na série animada de 1987 e se tornou parte essencial da identidade delas!</p>
+                <div class="pizza-animation">
+                    <img src="img/pizza.png" alt="Pizza" class="pizza-img">
+                </div>
+            </div>
+            
+            <!-- Card de curiosidade: Nomes -->
+            <div class="curiosity-card">
+                <h3>Nomes Renascentistas</h3>
+                <p>Os nomes das tartarugas são uma homenagem a artistas renascentistas famosos:</p>
+                <ul>
+                    <li>Leonardo da Vinci</li>
+                    <li>Raphael Sanzio</li>
+                    <li>Michelangelo Buonarroti</li>
+                    <li>Donatello di Niccolò</li>
+                </ul>
+                <!-- Adicionada imagem ilustrativa -->
+                <img src="img/renascentistas.jpg" alt="Artistas Renascentistas">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção do Quiz -->
+    <section id="quiz" class="quiz-section">
+        <h2 class="section-title">QUAL TARTARUGA NINJA VOCÊ SERIA?</h2>
+        <div class="quiz-container">
+            <!-- Tela inicial do quiz -->
+            <div id="quiz-start">
+                <p>Responda algumas perguntas para descobrir qual Tartaruga Ninja mais combina com você!</p>
+                <button id="start-quiz">Começar Quiz</button>
+            </div>
+            
+            <!-- Perguntas do quiz (inicialmente ocultas) -->
+            <div id="quiz-questions" style="display: none;">
+                <!-- Pergunta 1 -->
+                <div class="question" id="question-1">
+                    <h3>1. Qual é sua pizza favorita?</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q1" value="leonardo"> Margherita - clássica e tradicional
+                        </label>
+                        <label>
+                            <input type="radio" name="q1" value="raphael"> Pepperoni - forte e picante
+                        </label>
+                        <label>
+                            <input type="radio" name="q1" value="michelangelo"> Suprema - com todos os ingredientes possíveis!
+                        </label>
+                        <label>
+                            <input type="radio" name="q1" value="donatello"> Vegetariana - bem pensada e balanceada
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Pergunta 2 -->
+                <div class="question" id="question-2">
+                    <h3>2. Como você resolve problemas?</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q2" value="leonardo"> Planejando cuidadosamente cada passo
+                        </label>
+                        <label>
+                            <input type="radio" name="q2" value="raphael"> Enfrentando-os de frente, sem medo
+                        </label>
+                        <label>
+                            <input type="radio" name="q2" value="michelangelo"> Improvisando e mantendo o bom humor
+                        </label>
+                        <label>
+                            <input type="radio" name="q2" value="donatello"> Analisando todas as variáveis e usando tecnologia
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Pergunta 3 -->
+                <div class="question" id="question-3">
+                    <h3>3. O que você prefere fazer no tempo livre?</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q3" value="leonardo"> Meditar e treinar
+                        </label>
+                        <label>
+                            <input type="radio" name="q3" value="raphael"> Exercícios físicos intensos
+                        </label>
+                        <label>
+                            <input type="radio" name="q3" value="michelangelo"> Jogar videogame e assistir filmes
+                        </label>
+                        <label>
+                            <input type="radio" name="q3" value="donatello"> Ler e trabalhar em projetos
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Pergunta 4 -->
+                <div class="question" id="question-4">
+                    <h3>4. Qual frase mais combina com você?</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q4" value="leonardo"> "A disciplina é o caminho para o sucesso"
+                        </label>
+                        <label>
+                            <input type="radio" name="q4" value="raphael"> "Às vezes é preciso quebrar as regras"
+                        </label>
+                        <label>
+                            <input type="radio" name="q4" value="michelangelo"> "A vida é curta, aproveite cada momento!"
+                        </label>
+                        <label>
+                            <input type="radio" name="q4" value="donatello"> "O conhecimento é poder"
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Pergunta 5 -->
+                <div class="question" id="question-5">
+                    <h3>5. Em uma equipe, você geralmente é:</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="q5" value="leonardo"> O líder que toma as decisões
+                        </label>
+                        <label>
+                            <input type="radio" name="q5" value="raphael"> O protetor que defende os outros
+                        </label>
+                        <label>
+                            <input type="radio" name="q5" value="michelangelo"> O animador que mantém o moral alto
+                        </label>
+                        <label>
+                            <input type="radio" name="q5" value="donatello"> O estrategista que resolve problemas técnicos
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Botão para enviar respostas -->
+                <button id="submit-quiz">Ver Resultado</button>
+            </div>
+            
+            <!-- Resultado do quiz (inicialmente oculto) -->
+            <div id="quiz-result" style="display: none;">
+                <h3>Você é mais parecido com: <span id="result-name"></span></h3>
+                <img id="result-image" src="/placeholder.svg" alt="Resultado">
+                <p id="result-description"></p>
+                <button id="retake-quiz">Refazer Quiz</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Seja um Ninja" -->
+    <section id="ninja" class="ninja-section">
+        <h2 class="section-title">SEJA UM NINJA</h2>
+        <!-- Sabedoria do Mestre Splinter -->
+        <div class="splinter-wisdom">
+            <div class="splinter-image">
+                <img src="img/mestre.png" alt="Mestre Splinter">
+            </div>
+            <div class="wisdom-quotes">
+                <h3>Sabedoria do Mestre Splinter</h3>
+                <div class="quote-container">
+                    <!-- Citações do Mestre Splinter -->
+                    <p class="quote">"A paciência é a maior das virtudes."</p>
+                    <p class="quote">"Não é o tamanho da tartaruga na luta, mas o tamanho da luta na tartaruga."</p>
+                    <p class="quote">"O verdadeiro ninja sabe quando lutar e quando se esconder."</p>
+                    <p class="quote">"A família não é definida pelo sangue, mas pelo amor e lealdade."</p>
+                    <p class="quote">"Mesmo o mais longo dos jornadas começa com um único passo."</p>
+                    <p class="quote">"O medo é apenas um obstáculo que a mente cria."</p>
+                </div>
+                <!-- Botão para mostrar nova citação -->
+                <button id="new-quote">Nova Sabedoria</button>
+            </div>
+        </div>
+        <!-- Treinamento Ninja -->
+        <div class="ninja-training">
+            <h3>Treinamento Ninja</h3>
+            <div class="training-steps">
+                <!-- Passo 1: Disciplina -->
+                <div class="step">
+                    <h4>1. Disciplina</h4>
+                    <p>Como Leonardo, pratique disciplina diariamente. Estabeleça uma rotina e siga-a com determinação.</p>
+                </div>
+                <!-- Passo 2: Força -->
+                <div class="step">
+                    <h4>2. Força</h4>
+                    <p>Como Raphael, fortaleça seu corpo e mente. Enfrente seus medos e desafios com coragem.</p>
+                </div>
+                <!-- Passo 3: Criatividade -->
+                <div class="step">
+                    <h4>3. Criatividade</h4>
+                    <p>Como Michelangelo, cultive sua criatividade. Encontre soluções inovadoras e mantenha o bom humor.</p>
+                </div>
+                <!-- Passo 4: Conhecimento -->
+                <div class="step">
+                    <h4>4. Conhecimento</h4>
+                    <p>Como Donatello, busque sempre o conhecimento. A mente é a arma mais poderosa de um ninja.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <!-- Logo no rodapé -->
+            <div class="footer-logo">
+                <img src="img/logo.jpg" alt="TMNT Logo">
+            </div>
+            <!-- Links rápidos -->
+            <div class="footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#characters">Personagens</a></li>
+                    <li><a href="#curiosities">Curiosidades</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#ninja">Seja um Ninja</a></li>
+                </ul>
+            </div>
+            <!-- Redes sociais -->
+            <div class="social-media">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Direitos autorais -->
+        <div class="copyright">
+            <p>&copy; 2025 Tartarugas Ninja. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Importação do arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
